@@ -1,51 +1,118 @@
-# Set the title of the app
-st.title("Welcome to My Streamlit App!")
+# 🏥 Diabetes Prediction Using Machine Learning
 
-# Create a sidebar for user input
-st.sidebar.header("User Input")
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://diabetes-prediction-with-ml.streamlit.app/)
 
-# Get user input for name and age
-name = st.sidebar.text_input("Enter your name:")
-age = st.sidebar.number_input("Enter your age:", min_value=0, max_value=120, value=25)
+## 📌 Overview
 
-# Display the greeting message
-if st.sidebar.button("Submit"):
-    if name:
-        st.write(f"Hello, {name}! You are {age} years old.")
-        
-        # Age-based message
-        if age < 18:
-            st.write("You're still a minor!")
-        elif 18 <= age < 65:
-            st.write("You're an adult!")
-        else:
-            st.write("You're a senior citizen!")
-    else:
-        st.write("Please enter your name.")
+An interactive web application that predicts diabetes risk using machine learning. Built with Streamlit and scikit-learn, this tool analyzes medical indicators to provide real-time diabetes risk assessment.
 
-# Add a footer
-st.markdown("---")
-st.write("This is a simple Streamlit app to demonstrate user input.")
+🔴 [Live Demo](https://diabetes-prediction-with-ml.streamlit.app/)
+
+## 🎯 Features
+
+- **Real-time Prediction**: Get instant diabetes risk assessment
+- **Interactive Interface**: Easy-to-use sliders for input parameters
+- **Data Visualization**: Explore feature distributions and correlations
+- **Model Insights**: View model performance metrics
+- **Responsive Design**: Works on both desktop and mobile devices
+
+## 📊 Input Parameters
+
+| Parameter | Description | Range |
+|-----------|------------|--------|
+| Pregnancies | Number of pregnancies | 0-17 |
+| Glucose | Plasma glucose concentration | 0-200 |
+| Blood Pressure | Diastolic blood pressure (mm Hg) | 0-122 |
+| Skin Thickness | Triceps skin fold thickness (mm) | 0-100 |
+| Insulin | 2-Hour serum insulin (mu U/ml) | 0-846 |
+| BMI | Body mass index | 0-67.1 |
+| Diabetes Pedigree | Diabetes pedigree function | 0.078-2.42 |
+| Age | Age in years | 21-81 |
+
+## 🛠️ Technology Stack
+
+- **Frontend:** Streamlit
+- **Backend:** Python 3.8+
+- **ML Libraries:** scikit-learn, pandas, numpy
+- **Visualization:** Seaborn, Matplotlib
+
+## ⚙️ Installation & Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/diabetes-prediction.git
+cd diabetes-prediction
 ```
 
-### How to Run the App
-
-1. Save the code in a file named `app.py`.
-2. Open a terminal or command prompt.
-3. Navigate to the directory where you saved `app.py`.
-4. Run the following command:
-
+2. **Create and activate virtual environment**
 ```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+3. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Run the application**
+```bash
+cd src
 streamlit run app.py
 ```
 
-5. This will start a local server, and you should see a message in the terminal with a URL (usually `http://localhost:8501`). Open that URL in your web browser to see your Streamlit app in action.
+## 📁 Project Structure
 
-### Features of the App
+```
+diabetes-prediction/
+│
+├── src/
+│   ├── components/
+│   │   ├── __init__.py
+│   │   ├── data_loader.py
+│   │   ├── data_preprocessor.py
+│   │   └── data_visualizer.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── classifier.py
+│   └── app.py
+│
+├── data/
+│   └── diabetes.csv
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
 
-- A sidebar for user input where users can enter their name and age.
-- A button to submit the input.
-- A personalized greeting message based on the input.
-- An age-based message that categorizes the user as a minor, adult, or senior citizen.
+## 📈 Model Performance
 
-Feel free to modify the code to add more features or customize it according to your needs!
+- **Algorithm:** Random Forest Classifier
+- **Accuracy:** ~85%
+- **Features:** 8 input parameters
+- **Target:** Binary classification (0: Non-diabetic, 1: Diabetic)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+Tirth Gupta - [@Tirthgupta97](https://github.com/Tirthgupta97)
+
+## 🙏 Acknowledgments
+
+- [Pima Indians Diabetes Database](https://www.kaggle.com/uciml/pima-indians-diabetes-database)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [Scikit-learn Documentation](https://scikit-learn.org/stable/)
+
+---
+⭐️ Star this repository if you found it helpful!
